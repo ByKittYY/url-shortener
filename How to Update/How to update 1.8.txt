@@ -1,0 +1,26 @@
+How to update from URL Shortener Software v1.7 to v1.8 [Don't forget to back up your database/files before proceeding]
+
+----------------------------------------------------------------------------
+--------------------------------- MySQL ------------------------------------
+
+ALTER TABLE `links` CHANGE `alias` `alias` VARCHAR(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;
+ALTER TABLE `links` CHANGE `url` `url` VARCHAR(2048) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;
+ALTER TABLE `links` CHANGE `gid` `gid` VARCHAR(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;
+
+
+----------------------------------------------------------------------------
+---------------------------------- FTP -------------------------------------
+
+1. Backup your /includes/config.php file.
+2. Upload and replace all files from your FTP server with the new files.
+3. Manually update your config.php file to the latest version ($action array has been modified)
+3. Restore your /includes/config.php file.
+
+
+----------------------------------------------------------------------------
+------------------------------- Changelog ----------------------------------
+
+- Added support for links with special characters
+- Added support for special characters for custom aliases
+- Improved the custom alias validation function
+- Other minor improvements
